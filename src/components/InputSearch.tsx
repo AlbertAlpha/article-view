@@ -1,19 +1,21 @@
 import React, {useState} from "react";
 
 type InputSearchProps = {
-  onSearch: (text : string) => void,
-  minCharacters?: number
+  onSearch: (text: string) => void,
+  minCharacters?: number,
+  initialValue?: string
 }
 
-const InputSearch = ({onSearch, minCharacters = 1} : InputSearchProps) => {
+const InputSearch = ({onSearch, minCharacters = 1, initialValue = ''}: InputSearchProps) => {
 
-  const [searchValue, setSearchValue] = useState('');
+  const [searchValue, setSearchValue] = useState(initialValue);
 
-  function handleSearchValueChange($event : React.ChangeEvent<HTMLInputElement>) {
+  function handleSearchValueChange($event: React.ChangeEvent<HTMLInputElement>) {
     setSearchValue($event.target.value);
   }
 
-  function submit() {
+  function submit($event: React.FormEvent<HTMLFormElement>) {
+    $event.preventDefault();
     const value = searchValue.trim();
     if (value && value.length < minCharacters) return;
     onSearch(value);
