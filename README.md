@@ -5,7 +5,6 @@ A simple article browser and search app.
 ## Third-Party packages
 
 * This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
-* This project uses [MobX](https://mobx.js.org/) for application state management. 
 * This project uses [Bootstrap 4](https://getbootstrap.com/) CSS classes for basic styling and grid system
 
 ## 1. Install dependencies
